@@ -1,0 +1,8 @@
+---
+
+- hosts: toolsserverlabo
+  gather_facts: no
+
+  tasks:
+
+    - ping:
