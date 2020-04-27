@@ -68,3 +68,7 @@ ansible_user: provisionner
 ansible_ssh_pass: ansible
 ```
 
+
+###Warning
+
+with Vmware player <15.0 i have a bug with ssh connection into the alpine container so if you don't want lose six hours of debug you had to upgrade Vmware player ;) 
