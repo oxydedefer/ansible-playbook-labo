@@ -15,6 +15,7 @@ RUN  apk --update add sudo                                         && \
 
 #RUN rm /etc/krb5.conf
 #COPY krb5.conf /etc/krb5.conf
+ENV ANSIBLE_HOST_KEY_CHECKING=False
 RUN mkdir /home/.ssh
 WORKDIR /app
 ENTRYPOINT []

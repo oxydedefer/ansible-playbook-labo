@@ -1,3 +1,13 @@
 
 [toolsserverlabo]
 192.168.1.8
+
+[server_example_1]
+192.168.1.X
+
+[server_example_2]
+192.168.1.X
+
+[server_example_all:children]
+server_example_1
+server_example_2
