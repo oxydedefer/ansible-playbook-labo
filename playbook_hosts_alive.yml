@@ -2,7 +2,8 @@
 
 - hosts: toolsserverlabo
   gather_facts: no
-
+  vars:
+    ansible_ssh_private_key_file_host_path: /home/{{ansible_user}}/.ssh/id_rsa_{{inventory_hostname}}
   tasks:
 
     - ping:
