@@ -1,0 +1,36 @@
+---
+
+- hosts: toolsserverlabo
+  gather_facts: no
+  become: no
+
+  vars:
+    ansible_ssh_private_key_file_host_path: /home/{{ansible_user}}/.ssh/id_rsa_{{inventory_hostname}}
+    ssh_key_filename: id_rsa_{{inventory_hostname}}
+
+  tasks:
+      - name: generate SSH key "{{ssh_key_filename}}"
+        user:
+          name: "{{ansible_user}}"
+          generate_ssh_key: yes
+          ssh_key_type: rsa
+          ssh_key_bits: 4096
+          ssh_key_file: .ssh/{{ssh_key_filename}}
+          ssh_key_passphrase: ""
+          force: no
+          
+      - name: get remote file contents
+        command: "cat {{ansible_ssh_private_key_file_host_path}}.pub"
+        register: key
+
+      - name: show key contents
+        debug:
+          var: key.stdout
+      - name: Set authorized key taken from file
+        authorized_key:
+          user: provisionner
+          state: present
+          key: "{{key.stdout}}"
+
+  vars_files:
+    - "{{vault_file_path}}"
