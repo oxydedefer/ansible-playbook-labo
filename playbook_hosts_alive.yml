@@ -4,7 +4,7 @@
   gather_facts: no
   become: yes
   vars:
-    ansible_ssh_private_key_file_host_path: /home/{{ansible_user}}/.ssh/id_rsa_{{inventory_hostname}}
+    ansible_ssh_private_key_file: /home/.ssh/id_rsa_{{ansible_user}}
   tasks:
 
     - ping:
