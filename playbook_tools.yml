@@ -3,9 +3,8 @@
 - hosts: toolsserverlabo
   gather_facts: no
   become: yes
-  tasks:
-    - name: Install apache httpd  (state=present is optional)
-      apt:
-        name: apache2
-        state: absent
+  roles:
+    - role: role_labo_docker
 
+  vars_files:
+    - "{{vault_file_path}}"
