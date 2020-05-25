@@ -4,6 +4,7 @@
   gather_facts: no
   become: yes
   roles:
+    - role: geerlingguy.jenkins
     - role: role_labo_docker
 
   vars_files:
