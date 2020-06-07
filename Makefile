@@ -3,6 +3,7 @@ NAME = oxydedefer-labo/ansible
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SSH_LOCATION:=$(HOME)/.ssh
 ANSIBLE_VAULT_PASSWORD=?
+VAULT_PATH= $(ROOT_DIR)/inventories/TARGET/group_vars/vault.yml
 
 all: build
 
@@ -21,3 +22,7 @@ debug:
 
 test_alive:
 	docker run --rm -v $(ROOT_DIR):/app -v $(SSH_LOCATION):/home/.ssh $(NAME):latest bash -c "echo $(ANSIBLE_VAULT_PASSWORD) > /tmp/.vault_pass; ansible-playbook --vault-password-file /tmp/.vault_pass -i inventories/TARGET playbook_hosts_alive.yml"
+
+edit_vault:
+	ansible-vault edit $(VAULT_PATH)
+
