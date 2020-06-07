@@ -6,11 +6,7 @@
   vars:
     ansible_ssh_private_key_file: /home/.ssh/id_rsa_192.168.1.8
   tasks:
-
     - ping:
-
-    - debug:
-        msg: "{{ variable_in_vault }}"
 
   vars_files:
     - "{{vault_file_path}}"
