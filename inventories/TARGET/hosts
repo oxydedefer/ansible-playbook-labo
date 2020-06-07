@@ -2,12 +2,13 @@
 [toolsserverlabo]
 192.168.1.8
 
-[server_example_1]
-192.168.1.X
+[vagrant_monitoring_target]
+192.168.1.15
 
-[server_example_2]
-192.168.1.X
+[vagrant_web]
+192.168.1.16
 
-[server_example_all:children]
-server_example_1
-server_example_2
+
+[vagrant:children]
+vagrant_monitoring_target
+vagrant_web
