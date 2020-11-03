@@ -1,11 +1,17 @@
 ---
 
 - hosts: toolsserverlabo
-  gather_facts: no
+  strategy: linear
+  gather_facts: yes
   become: yes
+  vars:
+    java_packages:
+      - openjdk-14-jdk
+
   roles:
-    - role: geerlingguy.jenkins
-    - role: role_labo_docker
+      - role: geerlingguy.java
+      - role: geerlingguy.jenkins
+      - role: role_labo_docker
 
   vars_files:
     - "{{vault_file_path}}"
