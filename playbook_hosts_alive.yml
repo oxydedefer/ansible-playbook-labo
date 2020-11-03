@@ -2,11 +2,11 @@
 
 - hosts: toolsserverlabo
   gather_facts: no
-  become: yes
-  vars:
-    ansible_ssh_private_key_file: /home/.ssh/id_rsa_192.168.1.8
+  become: no
+#  vars:
+#    ansible_ssh_private_key_file: /home/.ssh/id_rsa_192.168.1.8
   tasks:
     - ping:
 
-  vars_files:
-    - "{{vault_file_path}}"
+#  vars_files:
+#    - "{{vault_file_path}}"
