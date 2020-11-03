@@ -1,0 +1,6 @@
+---
+
+- name: geerlingguy.java
+- name: geerlingguy.jenkins
+- src: https://github.com/oxydedefer/role_labo_docker.git
+
